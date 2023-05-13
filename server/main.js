@@ -18,7 +18,6 @@ app.get('/', (req, res) => {
 app.post('/driver',(req, res) => {
   const body = req.body;
   const query = `INSERT INTO user(firstName, lastName, email) VALUES ('${body.firstName}', '${body.lastName}','${body.email}');`;
-  
   connection.query( query, (err, rows, fields) => {
     if (err) throw err
     console.log('1 record inserted');
