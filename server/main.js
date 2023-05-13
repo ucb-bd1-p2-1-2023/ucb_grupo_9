@@ -15,16 +15,15 @@ const port = 3000;
 app.get('/', (req, res) => {
   res.send('hello word');
 })
-
 app.post('/driver',(req, res) => {
   const body = req.body;
   const query = `INSERT INTO user(firstName, lastName, email) VALUES ('${body.firstName}', '${body.lastName}','${body.email}');`;
-  connection.connect();
+  
   connection.query( query, (err, rows, fields) => {
     if (err) throw err
     console.log('1 record inserted');
   })
-  connection.end();
+  
   res.send('1 record inserted');
 })
 
@@ -36,7 +35,8 @@ const connection = mysql.createConnection({
   host: 'localhost',
   port: '3307',
   user: 'root',
-  password: 'password',
+  password: 'root',
   database: 'db1'
 })
 
+connection.connect(()=> console.log("connection start"));
