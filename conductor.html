@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Brush+Script+MT" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>In User</title>
+    <title>In Conductor</title>
 </head>
 <body>
     <div class="login-box">
-        <h2>🙎🏻 Driver Form</h2>
+        <h2>🚕 Driver Form</h2>
         <div class="user-box">
             <input type="text" id="firstName" required>
             <label>First Name:</label>
@@ -35,6 +35,10 @@
             <input type="password" id="contrasenia" required>
             <label>Contrasenia:</label>
         </div>
+        <div class="user-box">
+            <input type="text" id="estadoconductor" required>
+            <label>EstadoConductor</label>
+        </div>
         <a href="#" onclick="submitForm()">
             <span></span>
             <span></span>
@@ -53,10 +57,11 @@
                     telefono: document.getElementById('telefono').value,
                     email: document.getElementById('email').value,
                     contrasenia: document.getElementById('contrasenia').value,
+                    estadoconductor: document.getElementById('estadoconductor').value,
                 }
             }
             
-            const url = 'http://localhost:3000/user';
+            const url = 'http://localhost:3000/conductor';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',
