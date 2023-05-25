@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Brush+Script+MT" rel="stylesheet">
+    <link rel="stylesheet" href="styles2.css">
+    <title>In Vehiculo</title>
+</head>
+<body>
+    <div class="login-box">
+        <h2> 🚔 Vehiculo</h2>
+        <div class="user-box">
+            <input type="text" id="driverId" required>
+            <label>Drive Id:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="modelo" required>
+            <label>Modelo:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="marca" required>
+            <label>Marca:</label>
+        </div>      
+        <div class="user-box">
+            <input type="text" id="anio" required>
+            <label>Añio:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="placa" required>
+            <label>Placa:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="estadovehiculo" required>
+            <label>Estado vehiculo:</label>
+        </div>
+        <a href="#" onclick="submitForm()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+        </a>
+    </div>
+    <script>
+        function submitForm() {
+            function getValues() {
+                return {
+                    driverId: document.getElementById('driverId').value,
+                    modoelo: document.getElementById('modelo').value,
+                    marca: document.getElementById('marca').value,
+                    anio: document.getElementById('anio').value,
+                    placa: document.getElementById('placa').value,
+                    estadovehiculo: document.getElementById('estadovehiculo').value,
+                }
+            }
+            
+            const url = 'http://localhost:3000/vehiculo';
+            const method = 'POST';
+            const headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            };
+            const body = JSON.stringify(getValues());
+            const metadata = { method, headers, body };
+            fetch(url, metadata)
+            .then(response => response.json())
+            .then(response => console.log(JSON.stringify(response)))
+        }
+    </script>
+</body>
+</html>

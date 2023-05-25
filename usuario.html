@@ -28,12 +28,8 @@
             <label>Telefono:</label>
         </div>
         <div class="user-box">
-            <input type="text" id="email" required>
-            <label>Email:</label>
-        </div>
-        <div class="user-box">
-            <input type="password" id="contrasenia" required>
-            <label>Contrasenia:</label>
+            <input type="text" id="tarifa" required>
+            <label>Tarifa:</label>
         </div>
         <a href="#" onclick="submitForm()">
             <span></span>
@@ -51,12 +47,11 @@
                     lastName: document.getElementById('lastName').value,
                     direccion: document.getElementById('direccion').value,
                     telefono: document.getElementById('telefono').value,
-                    email: document.getElementById('email').value,
-                    contrasenia: document.getElementById('contrasenia').value,
+                    tarifa: document.getElementById('tarifa').value,
                 }
             }
             
-            const url = 'http://localhost:3000/user';
+            const url = 'http://localhost:3000/usuario';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',
