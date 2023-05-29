@@ -5,31 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Brush+Script+MT" rel="stylesheet">
-    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="styles2.css">
     <title>In Conductor</title>
 </head>
 <body>
     <div class="login-box">
-        <h2>💳 Pagos</h2>
+        <h2>💥 Promociones</h2>
         <div class="user-box">
-            <input type="text" id="promoId" required>
-            <label>Promo ID:</label>
+            <input type="text" id="tipoDescuento" required>
+            <label>Tipo Descuento:</label>
         </div>
         <div class="user-box">
-            <input type="text" id="userId" required>
-            <label>User ID:</label>
+            <input type="text" id="valorDescuento" required>
+            <label>Valor Descuento:</label>
         </div>
         <div class="user-box">
-            <input type="text" id="tripId" required>
-            <label>Trip ID:</label>
+            <input type="text" id="fechaInicio" required>
+            <label>Fecha Inicio</label>
         </div>
         <div class="user-box">
-            <input type="text" id="monto" required>
-            <label>Monto:</label>
-        </div>
-        <div class="user-box">
-            <input type="text" id="fechaPago" required>
-            <label>Fecha de pago</label>
+            <input type="text" id="fechaFin" required>
+            <label>Fecha Fin</label>
         </div>
         <a href="#" onclick="submitForm()">
             <span></span>
@@ -43,15 +39,14 @@
         function submitForm() {
             function getValues() {
                 return {
-                    promoId: document.getElementById('promoId').value,
-                    userId: document.getElementById('userId').value,
-                    tripId: document.getElementById('tripId').value,
-                    monto: document.getElementById('monto').value,
-                    fechaPago: document.getElementById('fechaPago').value,
+                    tipoDescuento: document.getElementById('tipoDescuento').value,
+                    valorDescuento: document.getElementById('valorDescuento').value,
+                    fechaInicio: document.getElementById('fechaInicio').value,
+                    fechaFin: document.getElementById('fechaFin').value,
                 }
             }
             
-            const url = 'http://localhost:3000/pagos';
+            const url = 'http://localhost:3000/promociones';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',

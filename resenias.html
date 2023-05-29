@@ -10,26 +10,26 @@
 </head>
 <body>
     <div class="login-box">
-        <h2>💳 Pagos</h2>
-        <div class="user-box">
-            <input type="text" id="promoId" required>
-            <label>Promo ID:</label>
-        </div>
+        <h2>📄 reseñas</h2>
         <div class="user-box">
             <input type="text" id="userId" required>
             <label>User ID:</label>
         </div>
         <div class="user-box">
-            <input type="text" id="tripId" required>
-            <label>Trip ID:</label>
+            <input type="text" id="driverId" required>
+            <label>Driver ID:</label>
         </div>
         <div class="user-box">
-            <input type="text" id="monto" required>
-            <label>Monto:</label>
+            <input type="text" id="calificacion" required>
+            <label>calificacion:</label>
         </div>
         <div class="user-box">
-            <input type="text" id="fechaPago" required>
-            <label>Fecha de pago</label>
+            <input type="text" id="comentario" required>
+            <label>Comentario</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="fechaResenia" required>
+            <label>Fecha Reseña</label>
         </div>
         <a href="#" onclick="submitForm()">
             <span></span>
@@ -43,15 +43,15 @@
         function submitForm() {
             function getValues() {
                 return {
-                    promoId: document.getElementById('promoId').value,
                     userId: document.getElementById('userId').value,
-                    tripId: document.getElementById('tripId').value,
-                    monto: document.getElementById('monto').value,
-                    fechaPago: document.getElementById('fechaPago').value,
+                    driverId: document.getElementById('driverId').value,
+                    calificacion: document.getElementById('calificacion').value,
+                    comentario: document.getElementById('comentario').value,
+                    fechaResenia: document.getElementById('fechaResenia').value,
                 }
             }
             
-            const url = 'http://localhost:3000/pagos';
+            const url = 'http://localhost:3000/resenias';
             const method = 'POST';
             const headers = {
                 'Accept': 'application/json',

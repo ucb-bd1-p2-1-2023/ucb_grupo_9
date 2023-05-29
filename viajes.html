@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Brush+Script+MT" rel="stylesheet">
+    <link rel="stylesheet" href="styles2.css">
+    <title>In Conductor</title>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Viajes</h2>
+        <div class="user-box">
+            <input type="text" id="userId" required>
+            <label>User ID:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="driverId" required>
+            <label>Driver ID:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="vehicleId" required>
+            <label>Vehicle ID:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="horaInicio" required>
+            <label>Hora Inicio</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="horaFin" required>
+            <label>Hora Fin</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="origen" required>
+            <label>Origen</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="destino" required>
+            <label>Destino</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="costoViaje" required>
+            <label>Costo Viaje</label>
+        </div>
+        <div class="user-box">
+            <input type="text" id="calificacionViaje" required>
+            <label>Calificacion Viaje</label>
+        </div>
+        <a href="#" onclick="submitForm()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+        </a>
+    </div>
+    <script>
+        function submitForm() {
+            function getValues() {
+                return {
+                    userId: document.getElementById('userId').value,
+                    driverId: document.getElementById('driverId').value,
+                    vehicleId: document.getElementById('vehicleId').value,
+                    horaInicio: document.getElementById('horaInicio').value,
+                    horaFin: document.getElementById('horaFin').value,
+                    origen: document.getElementById('origen').value,
+                    destino: document.getElementById('destino').value,
+                    costoViaje: document.getElementById('costoViaje').value,
+                    calificacionViaje: document.getElementById('calificacionViaje').value,
+                }
+            }
+            
+            const url = 'http://localhost:3000/viajes';
+            const method = 'POST';
+            const headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            };
+            const body = JSON.stringify(getValues());
+            const metadata = { method, headers, body };
+            fetch(url, metadata)
+            .then(response => response.json())
+            .then(response => console.log(JSON.stringify(response)))
+        }
+    </script>
+</body>
+</html>

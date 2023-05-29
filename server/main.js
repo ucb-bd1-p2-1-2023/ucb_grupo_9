@@ -51,8 +51,41 @@ app.post('/vehiculo',(req, res) => {
 app.post('/pagos',(req, res) => {
   const body = req.body;
  
-  const query = `INSERT INTO pagos(userId, tripId, monto, fechaPago) VALUES ('${body.userId}',
+  const query = `INSERT INTO pagos(promoId,userId, tripId, monto, fechaPago) VALUES ('${body.promoId}','${body.userId}',
    '${body.tripId}','${body.monto}','${body.fechaPago}');`;
+  connection.query( query, (err, rows, fields) => {
+    if (err) throw err
+    console.log('1 record inserted');
+  })
+  res.send('1 record inserted');
+})
+app.post('/promociones',(req, res) => {
+  const body = req.body;
+ 
+  const query = `INSERT INTO promociones(tipoDescuento,valorDescuento,fechaInicio,FechaFin) VALUES ('${body.tipoDescuento}','${body.valorDescuento}',
+   '${body.fechaInicio}','${body.fechaFin}');`;
+  connection.query( query, (err, rows, fields) => {
+    if (err) throw err
+    console.log('1 record inserted');
+  })
+  res.send('1 record inserted');
+})
+app.post('/resenias',(req, res) => {
+  const body = req.body;
+ 
+  const query = `INSERT INTO resenias(userId,driverId,calificacion,comentario,FechaResenia) VALUES ('${body.userId}','${body.driverId}',
+   '${body.calificacion}','${body.comentario}','${body.fechaResenia}');`;
+  connection.query( query, (err, rows, fields) => {
+    if (err) throw err
+    console.log('1 record inserted');
+  })
+  res.send('1 record inserted');
+})
+app.post('/viajes',(req, res) => {
+  const body = req.body;
+ 
+  const query = `INSERT INTO viajes(userId,driverId,vehicleId,horaInicio,horaFin,origen,destino,costoViaje,calificacionViaje) VALUES ('${body.userId}','${body.driverId}',
+   '${body.vehicleId}','${body.horaInicio}','${body.horaFin}','${body.origen}','${body.destino}','${body.costoViaje}','${body.calificacionViaje}');`;
   connection.query( query, (err, rows, fields) => {
     if (err) throw err
     console.log('1 record inserted');
